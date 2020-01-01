@@ -7,9 +7,9 @@ const Forms = ({initialized, setInitialized}) => {
     const [redirect, setRedirect] = useState(false);
 
     const login = async e => {
-        if(e){
+
             e.preventDefault();
-        }
+        
         await firebase.login(email, password).then((user) => {
            setInitialized()
             if(user) {

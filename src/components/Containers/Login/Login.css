@@ -1,0 +1,69 @@
+
+.slide1,.slide2,.slide3,.slide4,.slide5 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    width: 247px;
+    transform: translate(35.5%, -54%);
+    margin: 20px auto;
+}
+.slide1 {
+    background: url(https://www.instagram.com/static/images/homepage/screenshot1.jpg/d6bf0c928b5a.jpg)no-repeat center;
+    background-size: cover;
+    animation:fade 8s infinite;
+    -webkit-animation:fade 8s infinite;
+    height: 440px;
+}
+.slide2 {
+    background: url(https://www.instagram.com/static/images/homepage/screenshot2.jpg/6f03eb85463c.jpg)no-repeat center;
+    background-size: cover;
+    animation:fade2 8s infinite;
+    -webkit-animation:fade2 8s infinite;
+    height: 440px;
+}
+.slide3 {
+    background: url(https://www.instagram.com/static/images/homepage/screenshot3.jpg/f0c687aa6ec2.jpg)no-repeat center;
+    background-size: cover;
+    animation:fade3 8s infinite;
+    -webkit-animation:fade3 8s infinite;
+    height: 440px;
+}
+
+.slide4 {
+    background: url(https://www.instagram.com/static/images/homepage/screenshot5.jpg/0a2d3016f375.jpg)no-repeat center;
+    background-size: cover;
+    animation:fade4 8s infinite;
+    -webkit-animation:fade3 8s infinite;
+    height: 440px;
+}
+
+@keyframes fade
+{
+    0%   {opacity:1}
+    33.333% { opacity: 0}
+    66.666% { opacity: 0}
+    100% { opacity: 1}
+}
+@keyframes fade2
+{
+    0%   {opacity:0}
+    33.333% { opacity: 1}
+    66.666% { opacity: 0 }
+    100% { opacity: 0}
+}
+@keyframes fade3
+{
+    0%   {opacity:0}
+    33.333% { opacity: 0}
+    66.666% { opacity: 1}
+    100% { opacity: 0}
+}
+@keyframes fade4
+{
+    0%   {opacity:0}
+    33.333% { opacity: 0}
+    66.666% { opacity: 1}
+    100% { opacity: 0}
+}
