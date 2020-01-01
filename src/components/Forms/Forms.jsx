@@ -1,20 +1,23 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link, Redirect} from "react-router-dom";
 import firebase from '../../firebase'
-const Forms = () => {
+const Forms = ({initialized, setInitialized}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
 
     const login = async e => {
-        e.preventDefault();
+        if(e){
+            e.preventDefault();
+        }
         await firebase.login(email, password).then(() => {
-            setRedirect(true)
+            setInitialized(!initialized);
         })
     };
-    if(redirect) {
-        return <Redirect to='/content' />
-    }
+    useEffect((e) => {
+        login()
+    }, [initialized]);
+    console.log('render')
     return (
         <>
             <div className='Forms'>

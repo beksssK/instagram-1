@@ -32,6 +32,17 @@ class Firebase {
         })
         return user;
     }
+    async stateUser() {
+        return new Promise(resolve => {
+            this.auth.onAuthStateChanged(resolve)
+        })
+    }
+
+    async logout() {
+        await firebase.auth().signOut().then(err => {
+            console.log(err)
+        })
+    }
 }
 
 

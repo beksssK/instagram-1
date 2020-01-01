@@ -1,11 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import Layout from "./components/Layout/Layout";
 import Routes from "./routes";
+import firebase from './firebase';
 function App() {
+    const [initialized, setInitialized] = useState(false);
+    useEffect(() => {
+        firebase.stateUser().then((user) => {
+
+
+            if(user) {
+                setInitialized(!!user)
+                console.log(user)
+            }
+        })
+    });
   return (
       <Layout>
-        <Routes/>
+
+        <Routes initialized={initialized} setInitialized={setInitialized}/>
       </Layout>
   );
 }

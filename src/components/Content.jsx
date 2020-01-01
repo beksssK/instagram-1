@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import firebase from '../firebase'
+const Content = ({setInitialized}) => {
+    const logout = e => {
+        firebase.logout().then(() => {
+            setInitialized(false)
+        })
+    };
 
-const Content = () => {
     return (
         <div>
             Content
+            <button onClick={logout}>Logout</button>
         </div>
     );
 };

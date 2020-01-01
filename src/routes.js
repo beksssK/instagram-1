@@ -4,12 +4,11 @@ import Login from "./components/Containers/Login/Login";
 import Signin from "./components/Auth/Signin";
 import Content from "./components/Content";
 
-const Routes = () => {
+const Routes = ({initialized, setInitialized}) => {
     return (
         <Switch>
-            <Route exact  path='/' component={Login} />
+            <Route exact  path='/' render={()=><Login initialized={initialized} setInitialized={setInitialized} />} />
             <Route exact path='/signin' component={Signin} />
-            <Route exact path='/content' component={Content} />
         </Switch>
     );
 };
