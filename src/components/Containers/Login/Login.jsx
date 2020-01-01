@@ -11,12 +11,10 @@ const Login = ({initialized, setInitialized}) => {
             <div className="row login align-items-center'">
                 <div className="col-6">
                     <div className='Login-image'>
-
                             <div className='slide1'></div>
                             <div className='slide2'></div>
                             <div className='slide3'></div>
-
-                    </div>q
+                    </div>
                 </div>
                 <div className="col-6">
                     {initialized ? <Preloader/> : <Forms initialized={initialized} setInitialized={setInitialized}/>}

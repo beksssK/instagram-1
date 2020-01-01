@@ -1,0 +1,16 @@
+.Navigation{
+    text-align: right;
+}
+.NavLink{
+    color: #000;
+    text-decoration: none;
+    padding: 5px;
+    margin-left: 20px;
+}
+.NavLink:hover{
+    text-decoration: none;
+}
+
+.NavLink i{
+    font-size: 25px;
+}
