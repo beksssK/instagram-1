@@ -8,7 +8,7 @@ const Signin = () => {
     const login = async e => {
         e.preventDefault();
         await firebase.signin(email, password).then(() => {
-            console.log('its working')
+            console.log('its working');
             setRedirect(true)
         })
     };
@@ -38,9 +38,9 @@ const Signin = () => {
                         или
                     </div>
                     <div className="facebook">
-                        <i className="fa fa-facebook-official" aria-hidden="true"></i>
+                        <i className="fa fa-facebook-official" aria-hidden="true"/>
                         jhkkjh
-                        <a href="#">Войти через Facebook</a>
+                        <a href="#kl">Войти через Facebook</a>
                     </div>
                 </div>
             </div>
