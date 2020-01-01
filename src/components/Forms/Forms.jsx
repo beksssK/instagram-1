@@ -10,13 +10,16 @@ const Forms = ({initialized, setInitialized}) => {
         if(e){
             e.preventDefault();
         }
-        await firebase.login(email, password).then(() => {
-            setInitialized(!initialized);
+        await firebase.login(email, password).then((user) => {
+           setInitialized()
+            if(user) {
+                alert('Добро пожаловать флеш')
+            }else {
+                alert('bye bye flash')
+            }
         })
     };
-    useEffect((e) => {
-        login()
-    }, [initialized]);
+
     console.log('render')
     return (
         <>
