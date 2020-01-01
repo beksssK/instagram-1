@@ -1,0 +1,14 @@
+.password-show {
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 9999;
+    display: none;
+}
+
+.wrap-password {
+    position: relative;
+}

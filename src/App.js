@@ -7,8 +7,6 @@ function App() {
     const [initialized, setInitialized] = useState(false);
     useEffect(() => {
         firebase.stateUser().then((user) => {
-
-
             if(user) {
                 setInitialized(!!user)
                 console.log(user)
