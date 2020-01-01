@@ -1,0 +1,26 @@
+.Toolbar{
+    padding: 25px 0 20px;
+    border-bottom: 1px solid #DBDBDB;
+}
+.Toolbar .row{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2px;
+}
+.BarFirst i{
+    font-size: 28px;
+    padding-right: 20px;
+    border-right: 1px solid;
+}
+.BarFirst{
+    display: flex;
+    align-items: center;
+}
+.BarLogo{
+    width: 103px;
+    height: 29px;
+    margin-left: 20px;
+    background: url("https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png") 50% 50% no-repeat;
+    background-size: cover;
+}
+
