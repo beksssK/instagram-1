@@ -1,10 +1,13 @@
 import React from 'react';
-
+import './Preloader.css'
 const Preloader = () => {
     return (
-        <>
-            <img className='Preloader' src='https://cdn.dribbble.com/users/421466/screenshots/2377950/drops-400px.gif' />
-        </>
+        <div className="load">
+            <hr/>
+            <hr/>
+            <hr/>
+            <hr/>
+        </div>
     );
 };
 

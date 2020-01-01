@@ -12,3 +12,14 @@
 .wrap-password {
     position: relative;
 }
+
+.custom-button {
+    position: relative;
+    height: 50px;
+}
+
+.message {
+    color: red;
+    display: block;
+    font-size: 11px
+}

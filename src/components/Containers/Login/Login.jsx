@@ -16,7 +16,7 @@ const Login = ({initialized, setInitialized}) => {
                             <div className='slide2'></div>
                             <div className='slide3'></div>
 
-                    </div>
+                    </div>q
                 </div>
                 <div className="col-6">
                     {initialized ? <Preloader/> : <Forms initialized={initialized} setInitialized={setInitialized}/>}

@@ -22,7 +22,7 @@ class Firebase {
 
     async login(email, password) {
         const user = await firebase.auth().signInWithEmailAndPassword(email,password).catch(err => {
-            console.log(err)
+            console.log('sexxxx' + err)
         })
         return user;
     }

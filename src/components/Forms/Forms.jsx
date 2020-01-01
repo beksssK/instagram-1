@@ -10,26 +10,32 @@ const Forms = ({initialized, setInitialized}) => {
     const [preloader, setPreloader] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [showText, setShowText] = useState(false);
+    const [message, setMessage] = useState(null);
     const login = e => {
-        if (e) {
-            e.preventDefault();
+        e.preventDefault()
+        if (!preloader) {
+            setPreloader(!preloader)
+            setTimeout(() => {
+                setPreloader(false)
+            }, 1000)
+        } else {
+            setPreloader(false)
         }
-
         firebase.login(email, password).then((user) => {
 
             if (user) {
                 setInitialized(user)
-                setPreloader(true)
             } else {
-                alert('bye bye flash')
+                setMessage('Введенное вами имя пользователя не принадлежит аккаунту. Проверьте свое имя пользователя и повторите попытку.')
             }
+        }).catch(err => {
+            console.log(err)
         })
     };
     const validate = password.length == '' ? true : false || password.length <= 5 ? true : false || email.length == '' ? true : false;
     useEffect(() => {
         setInitialized(false)
     }, [])
-
     return (
         <>
             <div className='Forms'>
@@ -42,14 +48,15 @@ const Forms = ({initialized, setInitialized}) => {
 
                         </div>
                         <div className="form-group wrap-password">
-                            <span style={{display: showPassword ? 'block': 'none'}} className='password-show' onClick={() => setShowText(!showText)}>{showText ? 'скрыть' : 'показать'}</span>
+                            <span style={{display: showPassword ? 'block' : 'none'}} className='password-show'
+                                  onClick={() => setShowText(!showText)}>{showText ? 'скрыть' : 'показать'}</span>
                             <input value={password} type={showText ? 'text' : 'password'}
-                                   onChange={(e) =>{
+                                   onChange={(e) => {
                                        setPassword(e.target.value)
-                                       if(e.target.value >= 1) {
+                                       if (e.target.value >= 1) {
                                            setShowPassword(true)
                                            return;
-                                       }else {
+                                       } else {
                                            setShowPassword(false)
                                        }
 
@@ -57,10 +64,10 @@ const Forms = ({initialized, setInitialized}) => {
                                    className="form-control"
                                    placeholder="Password"/>
                         </div>
-
-                        <button type="submit" className="btn btn-primary w-100" disabled={validate}>Войти</button>
+                        <button type="submit" className="btn btn-primary w-100 custom-button"
+                                disabled={validate}>{preloader ? <Preloader/> : 'Войти'}</button>
+                        <span className='message'>{message}</span>
                     </form>
-                    {preloader ? <Preloader/> : null}
                     <div className="lines">
                         или
                     </div>
