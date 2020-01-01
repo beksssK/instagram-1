@@ -2,6 +2,7 @@ import React, {Component, useEffect, useState} from 'react';
 import Forms from "../../Forms/Forms";
 import Content from "../../Content";
 import './Login.css'
+import Preloader from "../../Preloader/Preloader";
 const Login = ({initialized, setInitialized}) => {
 
     return initialized ?
@@ -18,7 +19,7 @@ const Login = ({initialized, setInitialized}) => {
                     </div>
                 </div>
                 <div className="col-6">
-                    <Forms initialized={initialized} setInitialized={setInitialized}/>
+                    {initialized ? <Preloader/> : <Forms initialized={initialized} setInitialized={setInitialized}/>}
                 </div>
             </div>
         </div>

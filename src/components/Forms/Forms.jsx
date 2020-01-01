@@ -1,26 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import {Link, Redirect} from "react-router-dom";
 import firebase from '../../firebase'
+import Preloader from "../Preloader/Preloader";
+
 const Forms = ({initialized, setInitialized}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
-
     const login = async e => {
-
+        if (e) {
             e.preventDefault();
-        
+        }
         await firebase.login(email, password).then((user) => {
-           setInitialized()
-            if(user) {
-                alert('Добро пожаловать флеш')
-            }else {
+            if (user) {
+                setInitialized(user)
+            } else {
                 alert('bye bye flash')
             }
         })
     };
 
-    console.log('render')
+    useEffect(() => {
+        setInitialized(false)
+    }, [])
+
     return (
         <>
             <div className='Forms'>
@@ -33,7 +36,8 @@ const Forms = ({initialized, setInitialized}) => {
 
                         </div>
                         <div className="form-group">
-                            <input type="password" onChange={(e) => setPassword(e.target.value)} className="form-control"
+                            <input type="password" onChange={(e) => setPassword(e.target.value)}
+                                   className="form-control"
                                    placeholder="Password"/>
                         </div>
 
@@ -48,6 +52,7 @@ const Forms = ({initialized, setInitialized}) => {
                     </div>
                     <div className="forgot-password">
                         <Link to='/reset'>Забыли пароль?</Link>
+
                     </div>
 
                 </div>
