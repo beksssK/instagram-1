@@ -28,11 +28,23 @@ class Firebase {
         })
         return user;
     }
-    async signin(email, password) {
-        const user = await firebase.auth().createUserWithEmailAndPassword(email,password).catch(err => {
+    async register(name,email, password) {
+        const user = await firebase.auth().createUserWithEmailAndPassword(email,password)
+            .then(authRes => {
+                const userObj = {
+                    name,
+                    email: authRes.user.email,
+                }
+                return userObj
+            }).then(sex => {
+                console.log(sex)
+            })
+            .catch(err => {
             console.log(err)
         })
-        return user;
+        return this.auth.currentUser.updateProfile({
+            displayName: name
+        })
     }
     async stateUser() {
         return new Promise(resolve => {
@@ -40,9 +52,21 @@ class Firebase {
         })
     }
 
+   async getMessage(userId) {
+       return await firebase.firestore().collection('messe').doc(userId).get();
+   }
     async logout() {
         await firebase.auth().signOut().then(err => {
             console.log(err)
+        })
+    }
+    async getUserName() {
+        return firebase.auth().currentUser.displayName;
+    }
+    async createMessage(message) {
+        await firebase.firestore().collection('messe').add({
+            name: await firebase.auth().currentUser.displayName,
+            text: message.text,
         })
     }
 }

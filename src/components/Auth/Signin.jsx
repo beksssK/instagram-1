@@ -3,11 +3,12 @@ import {Link, Redirect} from "react-router-dom";
 import firebase from '../../firebase'
 const Signin = () => {
     const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
     const login = async e => {
         e.preventDefault();
-        await firebase.signin(email, password).then(() => {
+        await firebase.register(name,email, password).then(() => {
             console.log('its working')
             setRedirect(true)
         })
@@ -22,6 +23,11 @@ const Signin = () => {
                 <h1>Instagram</h1>
                 <div className="form">
                     <form onSubmit={login}>
+                        <div className="form-group">
+                            <input type="text" onChange={(e) => setName(e.target.value)} className="form-control"
+                                   placeholder="Enter Name"/>
+
+                        </div>
                         <div className="form-group">
                             <input type="email" onChange={(e) => setEmail(e.target.value)} className="form-control"
                                    placeholder="Enter email"/>
@@ -39,7 +45,7 @@ const Signin = () => {
                     </div>
                     <div className="facebook">
                         <i className="fa fa-facebook-official" aria-hidden="true"/>
-                        jhkkjh
+
                         <a href="#qq">Войти через Facebook</a>
                     </div>
                 </div>

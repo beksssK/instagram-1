@@ -27,6 +27,10 @@ const data = [
 ];
 const Direct = () => {
     const [userId, setUserId] = useState(null);
+    const [selectedChat, setSelectedChat] = useState(null);
+    const [newChat, setNewChat] = useState(false);
+    const [email, setEmail] = useState(null);
+    const [chat, setChat] = useState([]);
     return (
         <div className='direct'>
            <div className="container-fluid">
