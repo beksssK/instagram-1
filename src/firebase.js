@@ -14,6 +14,8 @@ const config = {
 };
 // Initialize Firebase
 class Firebase {
+    uid = '';
+    messagesRef = null;
     constructor() {
         firebase.initializeApp(config);
         this.auth = firebase.auth();

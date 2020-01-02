@@ -1,11 +1,12 @@
 .Navigation{
     text-align: right;
+    display: flex;
 }
 .NavLink{
     color: #000;
     text-decoration: none;
     padding: 5px;
-    margin-left: 20px;
+    margin-left: 25px;
 }
 .NavLink:hover{
     text-decoration: none;

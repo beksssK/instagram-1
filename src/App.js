@@ -9,7 +9,6 @@ function App() {
         firebase.stateUser().then((user) => {
             if(user) {
                 setInitialized(!!user)
-                console.log(user)
             }
         })
     });

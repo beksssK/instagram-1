@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link, Redirect} from "react-router-dom";
+import {Link} from "react-router-dom";
 import firebase from '../../firebase'
 import Preloader from "../Preloader/Preloader";
 import './Forms.css';
@@ -32,10 +32,10 @@ const Forms = ({initialized, setInitialized}) => {
             console.log(err)
         })
     };
-    const validate = password.length == '' ? true : false || password.length <= 5 ? true : false || email.length == '' ? true : false;
+    const validate = password.length === 0 ? true : false || password.length <= 5 ? true : false || email.length === 0 ? true : false;
     useEffect(() => {
         setInitialized(false)
-    }, [])
+    }, [setInitialized]);
     return (
         <>
             <div className='Forms'>
@@ -72,8 +72,8 @@ const Forms = ({initialized, setInitialized}) => {
                         или
                     </div>
                     <div className="facebook">
-                        <i className="fa fa-facebook-official" aria-hidden="true"></i>
-                        <a href="#">Войти через Facebook</a>
+                        <i className="fa fa-facebook-official" aria-hidden="true"/>
+                        <a href="#ee">Войти через Facebook</a>
                     </div>
                     <div className="forgot-password">
                         <Link to='/reset'>Забыли пароль?</Link>

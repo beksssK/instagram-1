@@ -13,6 +13,8 @@
     font-size: 8px;
     padding: 5px;
     border-radius: 50%;
+    z-index: 999;
+    cursor: pointer;
 }
 .Search input{
     width: 100%;
@@ -80,6 +82,7 @@ input:focus:-ms-input-placeholder {
 }
 .input-wrapper input[type=text] {
     text-align: center;
+    text-indent: 5px;
 }
 
 input[type=text]:focus {

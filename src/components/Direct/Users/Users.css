@@ -1,0 +1,61 @@
+.user-header {
+    padding: 8px 20px;
+}
+
+.users-info {
+    display: flex;
+}
+.users {
+    padding: 0!important;
+    border-radius: 10px;
+}
+.user {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 10px 15px;
+    position: relative;
+}
+.user:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    background-color: #cccccc;
+    height: 1px;
+    width: 80%;
+    right: 0;
+}
+.user:hover {
+    background-color:#e6e7ec;
+}
+.user:last-child {
+    border-radius: 10px;
+}
+.user:last-child:before{
+    border-radius: 10px;
+    width: 0;
+    height: 0;
+    border: 0;
+}
+.lastSeen {
+    color: #70758f;
+}
+.users-info img {
+    width:80px;
+    height: 80px;
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.users-desc {
+    margin-left: 20px;
+}
+
+.users-desc h2 {
+    font-size: 21px;
+    margin-bottom: 0;
+}
+
+.users-desc p {
+    color: #70758f;
+}

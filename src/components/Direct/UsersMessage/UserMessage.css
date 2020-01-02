@@ -1,0 +1,39 @@
+.UserMessage{
+    background: #fff;
+    border-left: 2px solid #ccc;
+    height: 100vh;
+}
+.UserMessage__header {
+    height: 100px;
+    display: flex;
+    padding: 8px 20px;
+    align-items: center;
+}
+.UserMessage__header h2 {
+    margin-left: 20px;
+    font-size: 20px;
+}
+.UserMessage-padding{
+    padding: 0 !important;
+}
+
+.UserMessage-flex {
+    display: flex;
+    align-items: center;
+}
+
+.UserMessage-flex h2 {
+    margin-left: 20px;
+}
+
+.UserMessage__header   img {
+    border-radius: 50%;
+}
+
+.UserMessage main {
+    padding: 20px;
+}
+
+.main-chat img {
+    border-radius: 50%;
+}

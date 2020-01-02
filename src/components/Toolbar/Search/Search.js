@@ -12,12 +12,18 @@ const Search = () => {
         setInput('input-wrapper');
         setClose(false)
     };
+    const clear = e => {
+        e.stopPropagation();
+        e.nativeEvent.stopImmediatePropagation();
+        removeClass()
+        setClose(false)
+        alert('hello')
+    }
     return (
         <form action="#" className='Search'>
             <div className={inputFocused}>
-                {close ? <i className='fa fa-close'></i> :close }
-
-                <input  onBlur={removeClass} onFocus={addClass} onChange={(e)=> setValue(e.target.value)}  type="text" placeholder='Search' />
+                {close ? <i className='fa fa-close' onClick={clear}></i> :close }
+                <input value={value} onBlur={removeClass} onFocus={addClass} onChange={(e)=> setValue(e.target.value)}  type="text" placeholder='Search' />
             </div>
         </form>
     );
