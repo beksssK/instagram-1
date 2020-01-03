@@ -83,7 +83,7 @@ const Forms = ({initialized, setInitialized}) => {
             </div>
             <div className="formbottom">
                 <span>У вас ещё нет аккаунта?</span>
-                <Link to='/signin'>Зарегистрироваться</Link>
+                <Link to='/register'>Зарегистрироваться</Link>
             </div>
         </>
     );

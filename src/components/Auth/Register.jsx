@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
 import {Link, Redirect} from "react-router-dom";
 import firebase from '../../firebase'
-const Signin = () => {
-    const [email, setEmail] = useState('');
+import nanoid from 'nanoid';
+const Register = () => {
     const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
     const login = async e => {
         e.preventDefault();
-        await firebase.register(name,email, password).then(() => {
-            console.log('its working')
+        await firebase.register(name, nanoid(), email, password).then(() => {
+            console.log('its working');
             setRedirect(true)
         })
     };
@@ -25,7 +26,7 @@ const Signin = () => {
                     <form onSubmit={login}>
                         <div className="form-group">
                             <input type="text" onChange={(e) => setName(e.target.value)} className="form-control"
-                                   placeholder="Enter Name"/>
+                                   placeholder="Enter your name"/>
 
                         </div>
                         <div className="form-group">
@@ -45,8 +46,8 @@ const Signin = () => {
                     </div>
                     <div className="facebook">
                         <i className="fa fa-facebook-official" aria-hidden="true"/>
-
-                        <a href="#qq">Войти через Facebook</a>
+                        jhkkjh
+                        <a href="#kl">Войти через Facebook</a>
                     </div>
                 </div>
             </div>
@@ -58,4 +59,4 @@ const Signin = () => {
     );
 };
 
-export default Signin;
+export default Register;

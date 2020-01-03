@@ -1,13 +1,13 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import './UserMessage.css';
 import firebase from '../../../firebase'
 const UsersMessage = (props) => {
     const [name,setName] = useState('');
     const [text,setText] = useState('');
-
+    const [users, setUsers] = useState([]);
     const add = async e => {
         e.preventDefault();
-       const data =  await firebase.createMessage();
+        await firebase.createMessage(text);
     };
 
     let user = props.userId ? (
@@ -15,7 +15,9 @@ const UsersMessage = (props) => {
     ) : null;
     return (
         <div className='UserMessage'>
-
+            {users.map((user,index) => (
+                <div key={index}>{user.name}</div>
+            ))}
             {user ? (
                 <Fragment>
                     <header className='UserMessage__header'>

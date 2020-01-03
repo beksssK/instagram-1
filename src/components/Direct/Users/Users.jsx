@@ -4,26 +4,23 @@ import {withRouter} from "react-router-dom";
 
 const Users = (props) => {
     const {data} = props;
-
-
     return (
         <div className='user-item'>
-
-            {data.map(item => {
+            {data.map(user => {
                 return (
-                    <div key={item.id}>
-                        <div  className="user" onClick={()=> props.setUserId(item.id)}>
+                    <div key={user.id}>
+                        <div  className="user" onClick={()=> props.setUserId(user.id)}>
                             <div className="users-info">
                                 <div className="users-picture">
-                                    <img src={item.img} alt=""/>
+                                    <img src={user.img} alt=""/>
                                 </div>
                                 <div className="users-desc">
-                                    <h2>{item.name}</h2>
-                                    <p>{item.message}</p>
+                                    <h2>{user.name}</h2>
+                                    <p>{user.message}</p>
                                 </div>
                             </div>
                             <div className="lastSeen">
-                                <span>{item.lastSeen}</span>
+                                <span>{user.lastSeen}</span>
                             </div>
                         </div>
                     </div>

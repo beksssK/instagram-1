@@ -1,36 +1,28 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Users from "./Users/Users";
 import UsersMessage from "./UsersMessage/UsersMessage";
 import './Direct.css'
-const data = [
-    {
-        img: 'https://sun9-63.userapi.com/c854128/v854128562/1c00f3/Y--KYVivkUY.jpg',
-        name: 'Rodney Robinson',
-        message: 'hey, dude, how are you doing?',
-        id: 1,
-        lastSeen: 'Tuesday'
-    },
-    {
-        img: 'https://picsum.photos/id/237/200/300\n',
-        name: 'Sexy  Sexybich',
-        message: 'Babe, how about a cup of coffee?',
-        id: 2,
-        lastSeen: 'Wednesday'
-    },
-    {
-        img: 'https://picsum.photos/id/238/200/300\n',
-        name: 'alexa Jouly',
-        message: 'Haven\' seen you for ages',
-        id: 3,
-        lastSeen: 'Monday'
-    }
-];
+import firebase from "../../firebase";
+
 const Direct = () => {
     const [userId, setUserId] = useState(null);
     const [selectedChat, setSelectedChat] = useState(null);
     const [newChat, setNewChat] = useState(false);
     const [email, setEmail] = useState(null);
     const [chat, setChat] = useState([]);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        firebase.getUsers().onSnapshot( snapshot => {
+            const users = [];
+            snapshot.docChanges().forEach(async change => {
+                const data = change.doc.data();
+                await users.push(data);
+            });
+            setData(users);
+        })
+    }, []);
+    console.log(data);
     return (
         <div className='direct'>
            <div className="container-fluid">
